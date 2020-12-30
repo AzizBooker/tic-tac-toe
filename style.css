@@ -2,12 +2,35 @@
     margin: 0;
     padding: 0;
 }
+:root{
+    --primaryColor:#B1EDFA;
+    --secondaryColor:#FAD3B2;
+    --hoverColor:#B1EDFA;
+    --placeColor:#589EAD
+}
 html{
     font-size: 62.5%;
     text-align: center;
 }
 body{
-    
+background-color: var(--primaryColor);
+color: white;
+
+
+}
+h2{
+font-size: 3rem;
+}
+h3{
+    padding-top: .5rem;
+    font-size: 2.4rem;
+}
+
+#title{
+    text-transform: capitalize;
+}
+.center{
+    margin: 0 auto;
 }
 .game-wrapper{
     padding-top: 2rem;
@@ -22,26 +45,55 @@ body{
     float: right;
     width: 50%;
     clear: right;
+   
 }
 .game-board{
-    margin: 0 auto;
+    margin-top: 10rem;
+    
+
+}
+.game-board table{
+    background-color: var(--secondaryColor);
+    box-shadow: 10px 7px rgba(0, 0, 0, 0.4);
+    
+    padding: 20px;
+    
 }
 .game-board button{
     text-align: center;
 height: 15rem;
 width: 15rem;
+box-shadow: 5px 2px rgba(0, 0, 0, 0.4);
+
 background-color: rgba(0,0,0,0);
+border: 1px solid black;
 
 }
-.game-board button:hover{
-    text-align: center;
-height: 15rem;
-width: 15rem;
-background-color: rgba(0,0,0,0.2);
+.game-board button:hover,button:focus{
+outline: none;
+
+background-color: rgba(0,0,0,0);
+}
+.line-break{
+    display: none;
 }
 
-@media only screen and (max-width: 600px) {
+.hover-btn{
+    color: var(--hoverColor);
+    font-size: 10rem;
+    opacity: 650%;
+}
+.place-btn{
+    color: var(--placeColor);
+    font-size: 10rem;
+    opacity: 40%;
+}
+
+@media only screen and (max-width: 720px) {
     .player-select,.computer-select {
       width: 100%;
+    }
+    .line-break{
+        display: block;
     }
   }
