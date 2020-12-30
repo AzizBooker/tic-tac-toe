@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    text-align: center;
+}
+body{
+    
+}
+.game-wrapper{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.player-select{
+    clear: left;
+    float: left;
+    width: 50%;
+}
+.computer-select{
+    float: right;
+    width: 50%;
+    clear: right;
+}
+.game-board{
+    margin: 0 auto;
+}
+.game-board button{
+    text-align: center;
+height: 15rem;
+width: 15rem;
+background-color: rgba(0,0,0,0);
+
+}
+.game-board button:hover{
+    text-align: center;
+height: 15rem;
+width: 15rem;
+background-color: rgba(0,0,0,0.2);
+}
+
+@media only screen and (max-width: 600px) {
+    .player-select,.computer-select {
+      width: 100%;
+    }
+  }
