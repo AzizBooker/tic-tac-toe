@@ -18,18 +18,27 @@
         <div class="player-select">
             <h2>Human</h2>
             <div class="btn-type-wrapper">
-            <button class="btn-type-select">X</button>
-            <button class="btn-type-select">O</button>
+            <button id='xBtn' value='X'class="btn-type-select" onclick="onTypeBtnClick(this)">X</button>
+            <button id='oBtn' value ='O' class="btn-type-select" onclick="onTypeBtnClick(this)">O</button>
         </div>
             
             <h3>0</h3>
         </div>
-        <div class="Computer-select">
+        
+        <div class="computer-select">
             <hr class="line-break">
             <h2>Computer</h2>
+            <br>
+            <br>
+            <br>
             <h3>0</h3>
+            
         </div>
-        <div class="game-board ">
+   
+        <div class="play-btn-container">
+            <button id="startBtn" class="btn-type-select">Start</button>
+        </div>
+        <div class="game-board  not-playing">
             <table class="center">
                 <tr>
                     <th><button onclick="onBtnClick(this)" onmouseout="onBtnOut(this)" onmouseover="onBtnHover(this)" value=1 id='btn1'></button></th>

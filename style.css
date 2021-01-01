@@ -21,6 +21,9 @@ color: white;
 
 
 }
+h1{
+    font-size: 4rem;
+}
 h2{
 font-size: 3rem;
 }
@@ -42,23 +45,32 @@ h3{
 .player-select{
     clear: left;
     float: left;
-    width: 50%;
+    width: 49%;
+   
 }
 .computer-select{
-    float: right;
-    width: 50%;
+    float: left;
+    width: 49%;
     clear: right;
+   
+   
+}
+.play-btn-container{
+    width: 100%;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
    
 }
 .game-board{
-    margin-top: 10rem;
+    margin-top: 5rem;
     
 
 }
 .game-board table{
     background-color: var(--secondaryColor);
     box-shadow: 10px 8px 4px rgba(0, 0, 0, 0.4);
-    
+   
     padding: 20px;
     
 }
