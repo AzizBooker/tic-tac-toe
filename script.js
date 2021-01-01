@@ -11,6 +11,30 @@ Object.freeze(playerType)
 
 const TicTacToe = (playerChoice, computerChoice) => {
     var firstMove
+    var tiles={
+        1:" ",
+        2:" ",
+        3:" ",
+        4:" ",
+        5:" ",
+        6:" ",
+        7:" ",
+        8:" ",
+        9:" "
+    }
+    const updateTile=function(value,isHuman){
+        if(isHuman){
+        tiles[value]=playerChoice;
+        }else{
+            tiles[value]=computerChoice
+        }
+
+    }
+    const getWinStatus=function(){
+        if((tiles[0]==playerChoice ))
+        console.log('WIN')
+    }
+    const getTileData=()=>console.table(tiles)
     const sayPlayerChoice = () => console.log(`player Choice:${playerChoice}`)
     const getPlayerChoice = () => playerChoice;
     const sayComputerType = () => console.log(`Computer Choice:${computerChoice}`)
@@ -26,10 +50,11 @@ const TicTacToe = (playerChoice, computerChoice) => {
 
 
 
-    return { playerChoice, sayPlayerChoice, getPlayerChoice, computerChoice, sayFirstMove, getFirstMove }
+    return { playerChoice, sayPlayerChoice, getPlayerChoice, computerChoice, sayFirstMove, getFirstMove,updateTile,getTileData,getWinStatus }
 }
 game = TicTacToe(playingChoices.X)
 game.sayFirstMove()
+game.getTileData()
 
 
 
@@ -85,8 +110,15 @@ function onBtnClick(btn) {
         btn.textContent = `O`
         btn.classList.add('place-btn')
     }
+        game.updateTile(btn.value,true)
+        game.getTileData()
+        game.getWinStatus()
+    
 
 
 
+}
+function onBtnTypeClick(btn){
+    
 }
 
