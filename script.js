@@ -1,9 +1,6 @@
-
-import playingChoices from './playerType';
-import playingType from './playerType'
-import TicTacToe from './TicTacToe'
-
-
+import {TicTacToe} from './modules/TicTacToe.js';
+import {playerType} from './modules/playerType.js'
+import {playingChoices} from './modules/playerChoice.js';
 
 
 

@@ -1,7 +1,7 @@
-import playingChoices from './playerType';
-import playingType from './playerType'
+import {playingChoices} from './playerChoice.js';
+import {playerType} from './playerType.js'
 
-const TicTacToe = (playerChoice, computerChoice) => {
+export const TicTacToe = (playerChoice, computerChoice) => {
     if (playerChoice = playingChoices.X) {
         computerChoice = playingChoices.O
     } else {
@@ -163,4 +163,3 @@ const TicTacToe = (playerChoice, computerChoice) => {
 }
 
 
-export {TicTacToe}
