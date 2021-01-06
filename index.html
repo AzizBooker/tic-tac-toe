@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>
-        <Tic-Tac-Toe></Tic-Tac-Toe>
+        Tic-Tac-Toe
     </title>
 </head>
 
@@ -36,9 +36,10 @@
         </div>
    
         <div class="play-btn-container">
+            <h2 id='game-result-text'>You Win!</h2>
             <button id="startBtn" class="btn-type-select">Start</button>
         </div>
-        <div class="game-board  not-playing">
+        <div class="game-board center not-playing">
             <table class="center">
                 <tr>
                     <th><button onclick="onBtnClick(this)" onmouseout="onBtnOut(this)" onmouseover="onBtnHover(this)" value=1 id='btn1'></button></th>
@@ -63,3 +64,5 @@
 
 </html>
 <script src="script.js"></script>
+
+

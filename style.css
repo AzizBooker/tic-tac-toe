@@ -35,6 +35,14 @@ h3{
 #title{
     text-transform: capitalize;
 }
+#game-result-text{
+margin-top: 5rem;
+font-size: 6rem;
+}
+#startBtn{
+    margin-top: 4rem;
+    
+}
 .center{
     margin: 0 auto;
 }
@@ -60,6 +68,7 @@ h3{
     margin-top: 2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    display: none;
    
 }
 .game-board{

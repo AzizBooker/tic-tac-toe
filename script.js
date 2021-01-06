@@ -1,95 +1,7 @@
-const playingChoices = {
-    X: 'X',
-    O: 'O'
-}
-const playerType = {
-    Human: 'Human',
-    Computer: 'Computer',
-}
-Object.freeze(playingChoices)
-Object.freeze(playerType)
 
-const TicTacToe = (playerChoice, computerChoice) => {
-    var firstMove
-    var isPlaying=false
-    var tiles = {
-        1: " ",
-        2: " ",
-        3: " ",
-        4: " ",
-        5: " ",
-        6: " ",
-        7: " ",
-        8: " ",
-        9: " "
-    }
-    tiles=Array.from(tiles)
-    var win
-    const updateTile = function (value, isHuman) {
-        if (isHuman) {
-            tiles[value] = playerChoice;
-        } else {
-            tiles[value] = computerChoice
-        }
-
-    }
-    const clearTileArray=()=>{
-        tiles.forEach(element=>{
-            element=" "
-        })
-        console.table(tiles)
-    }
-    const getWinStatus = () => {
-        //List of Possible Player Wins
-        if ((tiles[1] == playerChoice) && (tiles[2] == playerChoice) && (tiles[3] == playerChoice)) {
-            console.log('Win')
-        }
-        else if ((tiles[4] == playerChoice) && (tiles[5] == playerChoice) && (tiles[6] == playerChoice)) {
-            console.log('Win')
-        }
-        else if ((tiles[7] == playerChoice) && (tiles[8] == playerChoice) && (tiles[9] == playerChoice)) {
-            console.log('Win')
-        }
-        else if ((tiles[4] == playerChoice) && (tiles[5] == playerChoice) && (tiles[6] == playerChoice)) {
-            console.log('Win')
-        }
-        else if ((tiles[1] == playerChoice) && (tiles[5] == playerChoice) && (tiles[9] == playerChoice)) {
-            console.log('Win')
-        }
-        else if ((tiles[3] == playerChoice) && (tiles[5] == playerChoice) && (tiles[7] == playerChoice)) {
-            console.log('Win')
-        }
-
-    }
-    const getPlayingStatus=()=>{
-        isPlaying=false;
-        tiles.forEach(element => {
-            if(element!=" "){
-            isPlaying=true;
-            }
-        });
-        console.log(`isPlaying:${isPlaying}`)
-    }
-    const getTileData = () => console.table(tiles)
-    const sayPlayerChoice = () => console.log(`player Choice:${playerChoice}`)
-    const getPlayerChoice = () => playerChoice;
-   
-    const sayComputerType = () => console.log(`Computer Choice:${computerChoice}`)
-    const getComputerType = () => computerChoice
-    const sayFirstMove = () => console.log(`First Move:${firstMove}`)
-    const getFirstMove = () => firstMove
-    
-    if (playerChoice == playingChoices.X) {
-        firstMove = playerType.Human
-    } else {
-        firstMove = playerType.Computer
-    }
-
-
-
-    return { playerChoice,sayPlayerChoice, getPlayerChoice, sayFirstMove, getFirstMove, updateTile, getTileData, getWinStatus,isPlaying,getPlayingStatus,clearTileArray }
-}
-
+import playingChoices from './playerType';
+import playingType from './playerType'
+import TicTacToe from './TicTacToe'
 
 
 
@@ -108,7 +20,7 @@ var btn8 = document.querySelector('#btn8')
 var btn9 = document.querySelector('#btn9')
 var xBtn = document.querySelector('#xBtn')
 var oBtn = document.querySelector('#oBtn')
-var startButton=document.querySelector('#startBtn')
+var startButton = document.querySelector('#startBtn')
 buttons.push(btn1)
 buttons.push(btn2)
 buttons.push(btn3)
@@ -125,16 +37,28 @@ game.sayFirstMove()
 
 
 function onBtnHover(btn) {
-
+    /*
     if (game.getPlayerChoice() == playingChoices.X) {
-        btn.textContent = `X`
+        if (buttons[btn.value - 1].textContent == "") {
+            btn.textContent = 'X'
+        } else {
+
+        }
 
     } else {
-        btn.textContent = `O`
+        if (buttons[btn.value - 1].textContent == "") {
+            btn.textContent = 'X'
+        }else{
+
+        }
+
+
 
     }
     btn.classList.add('hover-btn')
+    */
 }
+
 function onBtnOut(btn) {
     if (!btn.classList.contains('place-btn'))
         btn.textContent = ''
@@ -143,36 +67,42 @@ function onBtnOut(btn) {
 
 function onBtnClick(btn) {
     //On TicTacToe board button click
-    if (game.getPlayerChoice() == playingChoices.X) {
-        btn.textContent = `X`
-        btn.classList.add('place-btn')
+    if (game.checkIfTileEmpty() == true) {
+        if (game.getPlayerChoice() == playingChoices.X) {
+            btn.textContent = `X`
+            btn.classList.add('place-btn')
+        } else {
+            btn.textContent = `O`
+            btn.classList.add('place-btn')
+        }
+        game.updateTile(btn.value, true)
+        game.getWinStatus()
+        var i = game.getComputerMove()
+        buttons[i - 1].textContent = 'S'
+        game.getTileData()
     } else {
-        btn.textContent = `O`
-        btn.classList.add('place-btn')
+        console.log('Tile is not Empty')
     }
-    game.updateTile(btn.value, true)
-    game.getTileData()
-    game.getWinStatus()
 
 
 }
 function onTypeBtnClick(btn) {
-    if(game.getPlayingStatus==false){
-        if(btn.value=='X'){
-            game.playerChoice=playingChoices.X
-        }else{
-            game.playerChoice=playingChoices.O
+    if (game.getPlayingStatus == false) {
+        if (btn.value == 'X') {
+            game.playerChoice = playingChoices.X
+        } else {
+            game.playerChoice = playingChoices.O
         }
         console.log('Game Not Playing')
     }
-    else{
+    else {
         console.log('Game Playing')
     }
 }
 
-function clearBoard(){
-    buttons.forEach(btn=>{
-        btn.textContent=" "
+function clearBoard() {
+    buttons.forEach(btn => {
+        btn.textContent = " "
     })
     game.clearTileArray()
 }
